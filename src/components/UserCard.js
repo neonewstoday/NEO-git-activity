@@ -10,8 +10,8 @@ class UserCard extends Component {
         let user = this.props.data
         // console.log(user)
         return (
- 
-            <div className="col-xs-2">
+
+            <div className="col-xs-1">
                 <div className="usercard">
                     <img src={user.avatar_url} alt={user.login} width="100%"/>
                     <p><a href={user.html_url}>{user.login}</a></p>

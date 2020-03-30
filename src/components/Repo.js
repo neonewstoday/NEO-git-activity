@@ -39,7 +39,7 @@ class Repo extends Component {
                         {repo.stargazers_count?<a className="mr-3"><Octicon icon={getIconByName("star")}/> {repo.stargazers_count}</a>:null}
                         {repo.forks_count?<a className="mr-3"><Octicon icon={getIconByName("git-branch")}/> {repo.forks_count}</a>:null}
                         {repo.license?<a className="mr-3"><Octicon icon={getIconByName("law")}/> {repo.license.spdx_id}</a>:null}
-                        <span>Updated <TimeAgo date={repo.updated_at}/></span>
+                        <span><br/>Updated <TimeAgo date={repo.updated_at}/></span>
                     </div>
                 </div>
             </div>:<div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">

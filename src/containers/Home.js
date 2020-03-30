@@ -35,45 +35,38 @@ class Home extends Component {
         this.props.dispatch(actions.getProjects(users));
     }
     componentWillReceiveProps(nextProps) {
-        if (this.props.users !== nextProps.users) { 
+        if (this.props.users !== nextProps.users) {
             this.setState({
                 users: nextProps.users
             });
           }
-        if (this.props.projects !== nextProps.projects) { 
+        if (this.props.projects !== nextProps.projects) {
           this.setState({
             projects: filterArray(nextProps.projects, "updated_at", "DESC", MAX_PROJECTS_COUNT),
           });
         }
-        if (this.props.commits !== nextProps.commits) { 
+        if (this.props.commits !== nextProps.commits) {
             this.setState({
                 commits: filterArray(nextProps.commits,"commit_date","DESC", MAX_COMMITS_COUNT),
             });
             // console.log(filterArray(nextProps.commits,"commit_date","DESC", MAX_COMMITS_COUNT));
-        }        
+        }
     }
 
     render() {
         let isloading = this.props.project_isloading || this.props.commit_isloading
         return (
             <div>
-                <header className="Header">
-                    <div className="container">
-                        <Octicon icon={MarkGithub} size='medium' verticalAlign='middle' />
-                        <span className="title">&nbsp;&nbsp; State of NEO &nbsp;&nbsp;</span>
-                    </div>
-                </header>
                 <div className="container">
+                    <div className="row header-row">
+                    {
+                        this.state.users && this.state.users.map((user, index)=>{
+                            return <UserCard key={index} data={user}></UserCard>
+                        })
+                    }
+                    </div>
                     <div className="col-xs-12 col-sm-8">
                         <br/>
-                        <div className="row">
-                        {
-                            this.state.users && this.state.users.map((user, index)=>{
-                                return <UserCard key={index} data={user}></UserCard>
-                            })
-                        }
-                        </div>
-
                         <h4 className="subtitle"><span>Last active projects</span></h4>
                         <div className="row reposlist">
                         {
@@ -86,7 +79,9 @@ class Home extends Component {
                         }
                         </div>
                     </div>
+                    {/* <Timer myfunction={this.getProjects}></Timer> */}
                     <div className="col-xs-12 col-sm-4">
+                        <br/>
                         <h4 className="subtitle"><span>Recent commits to master branches</span></h4>
                         {/* <div className="commit-group-title">Commits on Sep 28, 2018</div> */}
                         <div className="commitslist">
@@ -96,11 +91,10 @@ class Home extends Component {
                                 return <Commit key={index} data={commit}></Commit>
                             }):[...Array(10)].map((_, index) => {
                                 return <Commit key={index}></Commit>
-                            })                        
+                            })
                         }
                         </div>
                     </div>
-                    {/* <Timer myfunction={this.getProjects}></Timer> */}
                 </div>
             </div>
         )
