@@ -32,8 +32,8 @@ class Repo extends Component {
         return (
             repo?<div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div className="repo">
-                    <h3><a href={repo.html_url}>{repo.name}</a></h3>
-                    <p><a href={repo.owner.html_url} className="owner" >{repo.owner.login  || <Skeleton/>}</a></p>
+                    <h3><a href={repo.html_url} target="_blank">{repo.name}</a></h3>
+                    <p><a href={repo.owner.html_url} target="_blank" className="owner" >{repo.owner.login  || <Skeleton/>}</a></p>
                     <div className="info text-gray">
                         <span className={this.getLanguageColor(repo.language)} ></span><span className="mr-3"> {repo.language}</span>
                         {repo.stargazers_count?<a className="mr-3"><Octicon icon={getIconByName("star")}/> {repo.stargazers_count}</a>:null}

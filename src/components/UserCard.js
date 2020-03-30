@@ -14,7 +14,7 @@ class UserCard extends Component {
             <div className="col-xs-1">
                 <div className="usercard">
                     <img src={user.avatar_url} alt={user.login} width="100%"/>
-                    <p><a href={user.html_url}>{user.login}</a></p>
+                    <p><a href={user.html_url} target="_blank">{user.login}</a></p>
                 </div>
             </div>
         )

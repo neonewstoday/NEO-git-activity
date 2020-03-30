@@ -141,3 +141,19 @@ a {
 .row .col-xs-1 {
   flex: 1;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .header-row p {
+    font-size: .8em;
+    margin: 0 -10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-row {
+    display: block;
+  }
+  .row .col-xs-1 {
+    width: 20%;
+  }
+}
