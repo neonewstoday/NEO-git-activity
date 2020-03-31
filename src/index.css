@@ -154,6 +154,7 @@ a {
     display: block;
   }
   .row .col-xs-1 {
-    width: 20%;
+    width: 33%;
+    font-size: .8em;
   }
 }
