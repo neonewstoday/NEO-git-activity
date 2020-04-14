@@ -155,10 +155,10 @@ a {
     display: flex;
     flex-direction: column;
   }
-  .container:nth-child(2) {
+  .container.col-xs-12:nth-child(2) {
     order: 2;
   }
-  .container:nth-child(3) {
+  .container.col-xs-12:nth-child(3) {
     order: 1;
   }
   .header-row {
