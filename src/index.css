@@ -151,6 +151,16 @@ a {
 }
 
 @media (max-width: 767px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  .container:nth-child(2) {
+    order: 2;
+  }
+  .container:nth-child(3) {
+    order: 1;
+  }
   .header-row {
     display: block;
   }
