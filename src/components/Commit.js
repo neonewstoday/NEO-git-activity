@@ -13,7 +13,7 @@ class Commit extends Component {
         return (
             this.props.data?<div className="col-xs-12 commit-div">
                 <div className="commit">
-                    <p className="repo-title"><a href={commit.repo.html_url} target="_blank">{commit.repo.name}</a> / <a href={commit.repo.owner.html_url}>{commit.repo.owner.login}</a></p>
+                    <p className="repo-title"><a href={commit.repo.html_url} target="_blank">{commit.repo.name}</a> / <a href={commit.repo.owner.html_url} target="_blank">{commit.repo.owner.login}</a></p>
                     <p className="commit-title"><a href={commit.html_url} target="_blank">{this.messageFilter(commit.commit.message)}</a></p>
                     <div>
                         <img className="commit-avatar" alt="avatar" src={commit.committer && commit.committer.avatar_url ? commit.committer.avatar_url: default_avatar_url} width="20" height="20"></img>
